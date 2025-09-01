@@ -53,6 +53,7 @@ MIDDLEWARE = [
 
 CORS_ALLOWED_ORIGINS = [
     "https://adfinitum-trails.vercel.app",
+    "https://adfinitum-backend.onrender.com",
     "http://localhost:3000", 
 ]
 CORS_ALLOW_ALL_ORIGINS = True
