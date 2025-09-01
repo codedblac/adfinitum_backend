@@ -30,6 +30,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "rest_framework",
     "corsheaders",
+    "rest_framework_simplejwt",
+    "django_filters",
+    
+    # apps
+    "accounts",
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -45,7 +52,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Next.js dev server
+    "https://adfinitum-trails.vercel.app",
+    "http://localhost:3000", 
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -156,3 +164,5 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.IsAuthenticated",
     ),
 }
+
+AUTH_USER_MODEL = "accounts.User"
