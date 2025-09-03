@@ -47,6 +47,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -175,3 +178,5 @@ DEFAULT_FROM_EMAIL = 'noreply@yourdomain.com'
 
 
 FRONTEND_URL = 'https://adfinitum-trails.vercel.app'  
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
