@@ -6,6 +6,7 @@ from .views import (
     UserListView,
     ProfileView,
 )
+from .views import PasswordResetRequestView, PasswordResetConfirmView
 
 urlpatterns = [
     # Authentication
@@ -16,4 +17,7 @@ urlpatterns = [
     # User endpoints
     path("users/", UserListView.as_view(), name="user_list"),
     path("me/", ProfileView.as_view(), name="profile"),
+    
+    path('password-reset/', PasswordResetRequestView.as_view(), name='password_reset'),
+    path('password-reset-confirm/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
 ]
