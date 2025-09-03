@@ -17,6 +17,18 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+class SafeLoginView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
+    permission_classes = [permissions.AllowAny]
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        try:
+            serializer.is_valid(raise_exception=True)
+        except TokenError:
+            return Response({"detail": "Invalid credentials"}, status=401)
+        return Response(serializer.validated_data, status=200)
+
 
 
 class RegisterView(generics.CreateAPIView):
