@@ -32,9 +32,15 @@ class SafeLoginView(TokenObtainPairView):
 
 
 class RegisterView(generics.CreateAPIView):
-    """API for user signup"""
     serializer_class = RegisterSerializer
     permission_classes = [permissions.AllowAny]
+
+    def create(self, request, *args, **kwargs):
+        try:
+            return super().create(request, *args, **kwargs)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class LoginView(TokenObtainPairView):
