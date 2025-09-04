@@ -168,7 +168,7 @@ SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("Bearer",),
 }
 
-AUTH_USER_MODEL = "accounts.User"
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 
 # Example using console backend for dev
@@ -177,5 +177,3 @@ DEFAULT_FROM_EMAIL = 'noreply@yourdomain.com'
 
 
 FRONTEND_URL = 'https://adfinitum-trails.vercel.app'  
-
-
