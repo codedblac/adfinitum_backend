@@ -29,6 +29,7 @@ def custom_exception_handler(exc, context):
     """
 
     # First let DRF handle what it knows
+    
     response = exception_handler(exc, context)
 
     request = context.get("request")
@@ -68,6 +69,7 @@ def custom_exception_handler(exc, context):
         )
 
     # Unhandled exceptions (500)
+    
     logger.exception("Unhandled exception occurred", exc_info=exc)
 
     return _error_response(
