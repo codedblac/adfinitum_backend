@@ -33,9 +33,9 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, full_name, **extra_fields)
 
 
-# ---------------------------
+
 # Custom User Model
-# ---------------------------
+
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_("email address"), unique=True)
     full_name = models.CharField(_("full name"), max_length=255, blank=True)
@@ -63,9 +63,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         self.email = self.__class__.objects.normalize_email(self.email)
 
 
-# ---------------------------
+
 # Address Model
-# ---------------------------
+
 class Address(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="addresses")
     full_name = models.CharField(max_length=255)
